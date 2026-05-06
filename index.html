@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(120deg, #e3f2fd, #fce4ec);
+        }
+
+        .card {
+            border-radius: 15px;
+        }
+
+        .btn-option {
+            transition: 0.2s;
+        }
+
+        .btn-option:hover {
+            background: #90caf9;
+            transform: scale(1.03);
+        }
+
+        .progress-bar {
+            background: #64b5f6;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container mt-5">
+    <div class="card p-4 shadow">
+
+        <h3 class="text-center mb-3">🎯 Quiz App</h3>
+
+        <div class="d-flex justify-content-between">
+            <span>Q {{num}} / {{total}}</span>
+            <span>{{progress}}%</span>
+        </div>
+
+        <div class="progress mb-3">
+            <div class="progress-bar" style="width: {{progress}}%"></div>
+        </div>
+
+        <h5>{{q.question}}</h5>
+
+        <form method="post">
+            <div class="d-grid gap-2 mt-3">
+
+                {% for option in q.options %}
+                <button class="btn btn-outline-primary btn-option"
+                        name="option"
+                        value="{{option}}">
+                    {{option}}
+                </button>
+                {% endfor %}
+
+            </div>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
